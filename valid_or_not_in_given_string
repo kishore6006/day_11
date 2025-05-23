@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int isValidusername(const char *username){
+    int length =strlen(username);
+    if(length<5||length>12){
+        return 0;
+    }
+    
+ for(int i=0;i<length;i++){
+     if(!isalnum(username[i])){
+         return 0;
+        }
+     }
+     return 1;
+}
+int main (){
+
+     char username [100];
+     printf(" enter a username:");
+     fgets(username,sizeof(username),stdin);
+     for(int i=0; username[i]; i++){
+         if (username [i]=='\n'){
+             username[i]='\0';
+             break;
+             
+         }
+     }
+     if (isValidusername(username)){
+         printf("valid username.\n");
+         
+     }else{
+         printf("invalid username.must be 5-12 character and alphanumberic only.\n");
+         
+     }
+     
+     return 0;
+ }
